@@ -13,11 +13,11 @@ const SearchExercises = () =>{
             Should Know 
         </Typography>
         <Box position="relative"  mb="72 px">
-            <Textfield
+            <TextField
                 height=" 76px "
                 value=" "
                 onChange={(e) => {}}
-                placeHolder = "Search Exercises"
+                placeholder = "Search Exercises"
                 type = "text"
             />
         </Box>
