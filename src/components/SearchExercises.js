@@ -2,6 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Box, Button, Stack, TextField, Typography } from '@mui/material';
 
 const SearchExercises = () =>{
+ 
+const [search, setSearch ] = useState (' ')
+const handleSearch  = async  ( ) => {
+ if(search) {
+    //  const exerciseData = await fetchData();
+ } 
+}
     return(
         <Stack alignItems="center"
          mt ="37px" justifyContent="center"
@@ -11,15 +18,29 @@ const SearchExercises = () =>{
         }} mb='50px' textAlign="center">
             Awesome Exercise You <br/>
             Should Know 
-        </Typography>
-        <Box position="relative"  mb="72 px">
-            <TextField
-                height=" 76px "
-                value=" "
-                onChange={(e) => {}}
-                placeholder = "Search Exercises"
-                type = "text"
-            />
+        </Typography> 
+       <Box position="relative" mb="72px">
+        <TextField
+          height='76px'
+          sx={{ input: { fontWeight: '700', border: 'none', borderRadius: '4px' }, width: { lg: '800px', xs: '350px' }, backgroundColor: '#fff', borderRadius: '40px' }}
+          value={search}
+          onChange={(e) => setSearch(e.target.toLowercase())}
+          placeholder="Search Exercises"
+          type="text"  
+        /> 
+        <Button className='search-b tn'  
+         sx = {{
+            bgcolor:"#ff2625",
+            color: "#fff",
+            textTransform: 'none',
+            width: {lg: '175px', sx:  '80px'},
+            fontSize: {lg: '20px', sx: '14px'},
+            height: '55px',
+            position: 'absolute',
+            right: '0'
+         }}
+         onClick={handleSearch }
+        > Search </Button> 
         </Box>
         </Stack> 
     )
