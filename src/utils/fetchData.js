@@ -1,6 +1,11 @@
 export const exerciseOptions = {
     method: 'GET', 
-    url: 'https://exerciseb.p.rapidapi.com/exercise/bodyPartList'
+    url: 'https://exerciseb.p.rapidapi.com/exercise/bodyPartList', 
+    header: {
+        'X-RapidAPI-host': 'exerciseb.p.rapidapi.com', 
+        'X-RapidAPI-key': process.env.REACT_APP_API_KEY  
+        
+    }
 }
 
 export const fetchData = async(url,options)=>{
@@ -9,3 +14,4 @@ export const fetchData = async(url,options)=>{
 
     return data;
 }
+ 

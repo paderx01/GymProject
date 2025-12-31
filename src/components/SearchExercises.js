@@ -1,18 +1,31 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Button, Stack, TextField, Typography } from '@mui/material';
+import { Box, Button, Experimental_CssVarsProvider, Stack, TextField, Typography } from '@mui/material';
+ import { exerciseOptions, fetchData } from '../utils/fetchData';
 
 const SearchExercises = () =>{
  
-const [search, setSearch ] = useState (' ')
+const [search, setSearch ] = useState ('  ')
+const [exercises, setExercises] =  useState([])
+
+useEffecti 
+ 
 const handleSearch  = async  ( ) => {
  if(search) {
-    //  const exerciseData = await fetchData();
+     const exerciseData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
+     const searchedExercises = exercisesData.filter(
+        (item) => item.name.toLowerCase().includes(search)
+               || item.target.toLowerCase().includes(search)
+               || item.equipment.toLowerCase().includes(search)
+               || item.bodyPart.toLowerCase().includes(search)
+     );
+     setSearch=("");
+    setExercises ("searchedExercises") 
  } 
-}
-    return(
+} 
+    return( 
         <Stack alignItems="center"
          mt ="37px" justifyContent="center"
-         p='20px'>
+         p='20px'> 
         <Typography fontWeight = {700} xs={{
             fontSize: { lg: '44px', xs: '30px' }
         }} mb='50px' textAlign="center">
@@ -24,11 +37,11 @@ const handleSearch  = async  ( ) => {
           height='76px'
           sx={{ input: { fontWeight: '700', border: 'none', borderRadius: '4px' }, width: { lg: '800px', xs: '350px' }, backgroundColor: '#fff', borderRadius: '40px' }}
           value={search}
-          onChange={(e) => setSearch(e.target.toLowercase())}
+           onChange={(e) => setSearch(e.target.value.toLowerCase())}
           placeholder="Search Exercises"
           type="text"  
         /> 
-        <Button className='search-b tn'  
+        <Button className='search-btn'  
          sx = {{
             bgcolor:"#ff2625",
             color: "#fff",
