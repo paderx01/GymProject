@@ -1,14 +1,12 @@
-import React from "react"
-import {Box} from '@mui/material'
-
-import BodyPart from './BodyPart'
-
-//ToDo: we have the horizontalScrollBar and the BodyPart in. Now we need to plug it in our searchExercises.js
+import React from 'react'
+import {Box} from '@mui/material';  
+import bodyParts from './BodyPart'
 
 const HorizontalScrollbar = (data) =>{
     return (
         <div> 
-            {data.map((item)=> (<Box 
+            {data.map((item)=> (
+                <Box 
             key={item.id || item}
             itemid={item.id || item}
             title={item.id || item}
@@ -16,7 +14,7 @@ const HorizontalScrollbar = (data) =>{
             >
                 <BodyPart item={item} bodyPart = {bodyPart} setBodyPart={setBodyPart}/>
             </Box>
-            )
+            ) 
             )}
         </div>
     )
