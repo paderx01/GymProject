@@ -1,8 +1,8 @@
 import React from 'react'
 import {Box} from '@mui/material';  
-import bodyParts from './BodyPart'
+import bodyPart from './BodyPart'
 
-const HorizontalScrollbar = (data) =>{
+const HorizontalScrollbar = (data, bodyPart, setBodyPart ) =>{
     return (
         <div> 
             {data.map((item)=> (
