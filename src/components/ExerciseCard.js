@@ -1,10 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Box, Stack, Typography} from '@mui/material'
+import { Button, Stack, Typography} from '@mui/material'
 
-const ExerciseCard  = () => {
+const ExerciseCard  = ({exercise}) => {
   return (
-    <div> Exercise Card</div>
+    <Link className = 'exercise-card' to ={`/exercise/${exercise.id}`}>
+        <img src={exercise.gifUrl} alt ={exercise.name} loading = "lazy" />
+        <Stack direction = "row">
+            <Button sx={{ml: '21px', color:  "#fff", background: '#ffa9a9', fontSize: '14px', borderRadius: '20px', textTransform: 'capitalize '}}></Button>
+            {exercise.bodyPart}
+            <Button sx={{ml: '21px', color:  "#fff", background: '#fcc757', fontSize: '14px', borderRadius: '20px', textTransform: 'capitalize '}}></Button>
+            {exercise.target}  
+        </Stack>
+    </Link> 
   ) 
 }
 
