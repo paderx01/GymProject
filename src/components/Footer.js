@@ -9,7 +9,7 @@ const Footer = () => (
   //   </Stack>
   //   <Typography variant="h5" sx={{ fontSize: { lg: '28px', xs: '20px' } }} mt="41px" textAlign="center" pb="40px">Made with ❤️ by JavaScript Mastery</Typography>
   // </Box>
-  <div> uncomment me afterward</div>
+  <div>Footer</div>
 );
 
 export default Footer;

@@ -4,9 +4,14 @@ import { Box, Stack, Typography} from  '@mui/material'
 import { exerciseOptions, fetchData } from '../utils/fetchData';
 import ExerciseCard from './ExerciseCard'
 
-const Exercises = ({ exercises, setExcercises,  bodyPart }) => {
-  return (
-    <Box id="exercises "
+const Exercises = ({ exercises, setExercises,  bodyPart }) => {
+ const [currentPage, setCurrentPage] = useState(1)
+ const exercisesPerPage = 9; 
+
+ const paginate  = (e, value) => {}
+
+  return 
+    <Box id="exercises"
       sx = {{ mt: {lg:'110px'  }}}
       mt = '50px' 
       p = '20px '
@@ -21,8 +26,21 @@ const Exercises = ({ exercises, setExcercises,  bodyPart }) => {
           <ExerciseCard key={index} exercise = {exercise} />
          ))}
       </Stack> 
+      <Stack mt='100px' alignItems="center">
+        {exercises.length > 9 && (
+          <Pagination  
+          color="standard"
+          shape="rounded"
+          DefaultPage={1}
+          count={Math.ceil(exercise.length / 9 )}
+          page={currentPage}
+          onChange = {(e) => paginate(e, value)} 
+          size="large"
+          />
+        )}
+      </Stack>
+ 
       </Box >
-  )
 }
 
 export default Exercises
