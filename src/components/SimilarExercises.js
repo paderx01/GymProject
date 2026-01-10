@@ -4,9 +4,9 @@ import { Box, Stack, Typography} from '@mui/material'
 import HorizontalScrollbar from './HorizontalScrollbar'
 import Loader from './Loader'
 
-const SimilarExercises = (targetMuscleExercises, equipmentExercises) => {
+const SimilarExercises = ({targetMuscleExercises, equipmentExercises}) => {
   return (
-    <Box sz={{mt: { lg: '100px', xs:'0'}}}>
+    <Box sx={{mt: { lg: '100px', xs:'0'}}}>
       <Typography variant ='h3' mb={5}>
         Exercises that target the same muscle group
       </Typography>
