@@ -10,22 +10,27 @@ import SimilarExercises from '../components/SimilarExercises';
 const ExerciseDetail = () => {
   useState [exerciseDetail, setExerciseDetail] = 
   useState({});
+  const [exerciseVideo, setexerciseVideo] = useState([];)
   const { id } = useparams(); 
   
   useEffect(() => {
     const fetchExercisesData = async () => {
       const exerciseDbUrl = 'https://exercisedb.p.rapidapi.com';
-      const youtubeSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com'
+      const youtubeSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com';
 
       const exerciseDetailData = await fetchData(`${excerciseDbUrl}/exercise/exercise{id}` , exerciseOptions)
-      setExerciseDetail(exerciseDetailData)
+      setExerciseDetail(exerciseDetailData);
+
+      const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.name} exercise`, youtubeOptions);
+      setExerciseVideos(exerciseVideosData.contents);
     }
+      fetchExercisesData();
   }, [id]);
-  fetchExercisesData();
+
   return(
     <Box>
       <Detail exerciseDetail={exerciseDetail} />
-      <ExerciseVideo />
+      <ExerciseVideo exerciseVideos={exerciseVideo} name={exerciseDetail.name}/>
       <SimilarExercises />
     </Box>
   );
